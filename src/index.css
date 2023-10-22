@@ -1,0 +1,163 @@
+/* Login.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-content {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.login-image {
+  flex: 1;
+  background: url('./assets/ghaza.jpg');
+
+  background-size: cover;
+}
+
+.login-form {
+
+  flex: 1;
+  padding: 20px;
+  margin: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+/* Logo */
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+/* Navigation buttons */
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.nav-button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #777;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .buttons {
+    margin-top: 10px;
+    justify-content: flex-start;
+  }
+}
+
+
+
+
+/* Footer ----------------------------------*/
+
+/* Footer.css */
+
+.footer {
+  background-color: #007bff; /* Dark background color */
+  color: #fff; /* Text color */
+  padding: 20px 0;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.association-info {
+  flex: 1;
+  text-align: center; /* Center align the text */
+}
+
+.map-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Style the map container, if needed */
+.map-container .leaflet-container {
+  max-width: 100%; /* Ensure the map fits the container */
+  border: 1px solid #555; /* Add a border around the map */
+}
+
+
+
+/*------------------------------------------*/
