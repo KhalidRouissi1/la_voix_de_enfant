@@ -2,6 +2,37 @@
     --main-color: #3b78d2;
     --alternative-color: #F7594F;
 }
+
+.homePage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.homePage h1{
+    color: var(--main-color);
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 48.41px;
+}
+
+
+.homePage .Ellipse{
+
+position: absolute;
+width: 310px;
+height: 310px;
+left: -71px;
+top: 576px;
+
+background: rgba(19, 108, 242, 0.1);
+box-shadow: 0px 0px 100px #000000;
+filter: blur(50px);
+
+}
+
 .addKidSection{
     width: 80%;
     margin: 0 auto;

@@ -4,6 +4,7 @@ import LockScreen from './pages/LockScreen'
 import Base from './pages/Base'
 import AddKid from './pages/addKid'
 import DeleteKide from './pages/deleteKid'
+import HomePage from './pages/homePage'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <Route path='/' element={<LockScreen />}/>
     <Route element={<Base />} >
       <Route element={<LockScreen/>} path='lockScreen'></Route>
+      <Route path='home' element={<HomePage/>} />
       <Route path='addKid' element={<AddKid/>} />
       <Route path='deleteKid' element={<DeleteKide/>} />
     </Route>

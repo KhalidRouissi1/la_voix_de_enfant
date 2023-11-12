@@ -6,6 +6,7 @@ export default function Base() {
   return (
     <>
         <Header/>
+        
         <Outlet/>
     
     </>

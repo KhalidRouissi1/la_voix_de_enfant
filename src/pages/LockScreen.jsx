@@ -20,13 +20,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can add your authentication logic here
     console.log('Admin Name:', adminName);
     console.log('Password:', password);
 
-    // Check if the admin name and password match
     if (adminName === 'khaled' && password === 'khaled') {
-      navigate('/addKid'); // Redirect to the addKid route
+      navigate('/home'); 
     } else {
       // Perform other actions or show an error message for incorrect credentials
     }
@@ -37,7 +35,7 @@ const Login = () => {
       <div className="formular">
         <img src={user} alt='userIcon' />
         <h1>WELCOME</h1>
-        <form onSubmit={handleSubmit}> {/* Add onSubmit to the form */}
+        <form onSubmit={handleSubmit}>
           <div className="box">
             <label htmlFor="">Admin name</label>
             <input type="text" className='name' value={adminName} onChange={handleAdminNameChange} />
