@@ -1,0 +1,106 @@
+:root {
+    --main-color: #3b78d2;
+    --alternative-color: #F7594F;
+}
+*{
+    font-family: 'Roboto', sans-serif;
+
+}
+    
+
+.login-container {
+    background-color: var(--main-color);
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative; 
+}
+.shapeAndLogo {
+    position: relative;
+  }
+  
+.shapeAndLogo .logo {
+    position: absolute;
+    top: 76%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 400px;
+}
+
+
+.formular {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+    width: 40%;
+}
+
+.formular h1{
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 84.38px;
+    width: 100%;
+    margin-left: 150px;
+    color: white;
+}
+
+.formular form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.formular form .box{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 20.47px;
+    gap: 5px;
+
+}
+
+
+
+.formular form .box input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 2px var(--alternative-color);
+    caret-color: white; /* Adjust the cursor color to white */
+    color: white;
+}
+
+
+.formular form .box span{
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 2px;
+}
+
+
+
+.formular form .box button{
+    border: none;
+    background-color: var(--alternative-color);
+    color: white;
+    border: solid var(--alternative-color) 1px;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+

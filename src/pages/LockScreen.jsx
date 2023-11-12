@@ -1,10 +1,14 @@
-/* Login.js */
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import "./lockScreen.css"
+import shape from "../assets/Rectangle.png"
+import logo from "../assets/logo.jpg"
+import user from "../assets/User.png"
 
 const Login = () => {
   const [adminName, setAdminName] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // React Router's navigate function
 
   const handleAdminNameChange = (e) => {
     setAdminName(e.target.value);
@@ -19,38 +23,38 @@ const Login = () => {
     // You can add your authentication logic here
     console.log('Admin Name:', adminName);
     console.log('Password:', password);
+
+    // Check if the admin name and password match
+    if (adminName === 'khaled' && password === 'khaled') {
+      navigate('/addKid'); // Redirect to the addKid route
+    } else {
+      // Perform other actions or show an error message for incorrect credentials
+    }
   };
 
   return (
     <div className="login-container">
-      <div className="login-content">
-        <div className="login-image"></div>
-        <div className="login-form">
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="adminName">Admin Name:</label>
-              <input
-                type="text"
-                id="adminName"
-                value={adminName}
-                onChange={handleAdminNameChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={handlePasswordChange}
-                required
-              />
-            </div>
-            <button type="submit">Login</button>
-          </form>
-        </div>
+      <div className="formular">
+        <img src={user} alt='userIcon' />
+        <h1>WELCOME</h1>
+        <form onSubmit={handleSubmit}> {/* Add onSubmit to the form */}
+          <div className="box">
+            <label htmlFor="">Admin name</label>
+            <input type="text" className='name' value={adminName} onChange={handleAdminNameChange} />
+          </div>
+          <div className="box">
+            <label htmlFor="">Admin password</label>
+            <input type="password" value={password} onChange={handlePasswordChange} />
+            <span>Forget password?</span>
+          </div>
+          <div className="box">
+            <button type="submit">Enter</button>
+          </div>
+        </form>
+      </div>
+      <div className="shapeAndLogo">
+        <img src={shape} alt="shape" className='shape' />
+        <img src={logo} alt="logo" className='logo' />
       </div>
     </div>
   );
