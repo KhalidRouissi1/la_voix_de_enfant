@@ -1,0 +1,215 @@
+
+/* src/index.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+    --main-color: #3b78d2;
+    --alternative-color: #F7594F;
+}
+
+.homePage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.homePage h1{
+    color: var(--main-color);
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 48.41px;
+}
+
+
+.homePage .Ellipse{
+
+position: absolute;
+width: 310px;
+height: 310px;
+left: -71px;
+top: 576px;
+
+background: rgba(19, 108, 242, 0.1);
+box-shadow: 0px 0px 100px #000000;
+filter: blur(50px);
+
+}
+
+.addKidSection{
+    width: 80%;
+    margin: 0 auto;
+}
+.addKidSection h1{
+
+    color: var(--main-color);
+    font-size: 40px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+}
+
+.addKidSection table{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #E8F1FE;
+    border-radius: 50px;
+    border-collapse: separate;
+    border-spacing: 100px 50px;
+}
+
+.addKidSection table tr td input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border:  1px solid #D1D1D1 ;
+
+}
+
+
+.addKidSection .btnImgSection{
+    margin-top: 10px;
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    align-items: centers;
+    justify-content: space-between;
+}
+
+.addKidSection select{
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    border:  1px solid #D1D1D1 ;
+
+}
+
+
+.addKidSection .btnImgSection .buttons input{
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    font-size: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 2px;
+    padding: 10px 70px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.addKidSection .images{
+    margin-left: 100px;
+}
+
+.addKidSection .images img:first-child{ 
+    width: 200px;
+    transform: translateX(50px);
+    z-index: 100;
+}
+.addKidSection .images img:last-child{ 
+    width: 200px;
+    transform: translateX(16px);
+    transform: translateY(32px);
+    z-index: 1;
+}
+
+
+
+/* Delete Section */
+
+
+.deleteKid{
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.deleteKid h1{
+    color: var(--main-color);
+    font-size: 40px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+}
+
+.deleteKid .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.deleteKid .container .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 500px;
+    padding: 0 200px;
+    border-radius: 50px;
+    border: black 1px solid;
+    background-color: #E8F1FE;
+}
+
+
+
+.deleteKid .container .box .whiteBox{
+    width: 80%;
+    padding: 20px 300px;
+    border-radius: 50px;
+    margin-top: 50px;
+    margin: 0 auto;
+    height: 400px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 60px;
+    
+}
+.deleteKid .container .box .whiteBox span{
+    margin-left: 20px;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.deleteKid .container .box .whiteBox input{
+    margin-left: 20px;
+    width: 100%;
+}
+
+.deleteKid .container .images{
+    display: flex;
+
+}
+
+.deleteKid .container .images img:first-child{
+
+    width: 342px;
+    z-index: 11;
+    transform: translateY(-100px) translateX(113px); 
+
+
+    
+}
+.deleteKid .container .images img:last-child{
+    z-index: 2 ;
+    width: 371px;
+
+    
+}
+.deleteKid  .btnDelete{
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    font-size: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 2px;
+    padding: 10px 70px;
+    margin-right: 40px;
+    cursor: pointer;
+}

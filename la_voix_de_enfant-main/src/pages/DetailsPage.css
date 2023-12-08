@@ -1,0 +1,46 @@
+/* DetailsPage.css */
+
+.details-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .details-heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .details-card {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .details-info {
+    padding: 20px;
+  }
+  
+  .details-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .details-image-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .details-image {
+    width: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border-radius: 50%;
+  }
+  
