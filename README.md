@@ -14,8 +14,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository to your local machine:
 
-   ```bash
-   git clone https://github.com/your-username/your-project.git
+ git clone https://github.com/your-username/your-project.git
 cd la_voix_de_enfant
 ##Install Laravel dependencies:
 composer install
@@ -24,7 +23,7 @@ cp .env.example .env
 ##Update the .env file with your database configuration and other settings.
 #Setting up React.js (Frontend)
 ##Change into the client directory:
-cd client
+cd la_voix_de_enfant-main
 ##Install React.js dependencies:
 npm install
 
