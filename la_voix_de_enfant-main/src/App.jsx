@@ -15,8 +15,9 @@ function App() {
   return (
     <>  
     <Routes>
-    <Route path='/' element={<LockScreen />}/>
     <Route element={<Base />} >
+            <Route path='/' element={<HomePage/>} />
+
       <Route path='home' element={<HomePage/>} />
       <Route path='addKid' element={<AddKid/>} />
       <Route path='deleteKid' element={<DeleteKide/>} />
