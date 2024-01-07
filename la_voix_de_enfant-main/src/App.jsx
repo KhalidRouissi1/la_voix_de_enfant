@@ -16,8 +16,7 @@ function App() {
     <>  
     <Routes>
     <Route element={<Base />} >
-            <Route path='/' element={<HomePage/>} />
-
+      <Route path='/' element={<LockScreen/>}>
       <Route path='home' element={<HomePage/>} />
       <Route path='addKid' element={<AddKid/>} />
       <Route path='deleteKid' element={<DeleteKide/>} />
@@ -25,7 +24,9 @@ function App() {
       <Route path="/afficher/:id" element={<DetailsPage/>} />
       <Route path="/edit/:id" element={<EditPage/>} />
       <Route path="/stat" element={<Stat/>} />
+      </Route>
     </Route>
+
     </Routes>
     </>
   )
