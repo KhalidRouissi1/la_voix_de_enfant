@@ -8,7 +8,7 @@ import user from "../assets/User.png"
 const Login = () => {
   const [adminName, setAdminName] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // React Router's navigate function
+  const navigate = useNavigate(); 
 
   const handleAdminNameChange = (e) => {
     setAdminName(e.target.value);
@@ -26,7 +26,6 @@ const Login = () => {
     if (adminName === 'khaled' && password === 'khaled') {
       navigate('/home'); 
     } else {
-      // Perform other actions or show an error message for incorrect credentials
     }
   };
 

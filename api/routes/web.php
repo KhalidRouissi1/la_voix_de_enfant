@@ -6,6 +6,5 @@
 
 use App\Http\Controllers\BebeController;
 
-Route::resource('bebes', BebeController::class);
 
 ?>

@@ -49,9 +49,15 @@ class BebeApiController extends Controller
         return response()->json($bebe, 201);
     }
 
-    public function update(Request $request, Bebe $bebe)
+    public function update(Request $request, $bebeId)
     {
-        $validator = Validator::make($request->all(), [
+        $bebe = Bebe::find($bebeId);
+
+        if (!$bebe) {
+            return response()->json(['message' => 'Bébé non trouvé.'], 404);
+        }
+
+        $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
             'date_naissance' => 'required|date',
@@ -69,13 +75,9 @@ class BebeApiController extends Controller
             'tel_adoptive' => 'required',
             'adresse_adoptive' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 400);
-        }
-    
+
         $bebe->update($request->all());
-    
+
         return response()->json($bebe, 200);
     }
 

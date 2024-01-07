@@ -1,36 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import baby1 from "../assets/baby1.png";
 import baby2 from "../assets/baby2.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export default function AddKid() {
+export default function EditKid() {
   const nav = useNavigate();
+  const { id } = useParams();
+
   const [formData, setFormData] = useState({
-    lastname: '',
-    firstname: '',
-    ordinal_number: '',
-    gender: 'male',
-    date_of_birth: '',
-    place: '',
-    acceptance_date: '',
-    integration_date: '',
-    bio_mother_name: '',
-    bio_father_name: '',
-    phone: '',
-    address: '',
-    adoptive_mother_name: '',
-    adoptive_father_name: '',
-    adoptive_phone: '',
-    adoptive_address: '',
-    photo: null, 
+    nom: '',
+    prenom: '',
+    nombre_ordonnel: '',
+    sexe: 'Male',
+    date_naissance: '',
+    lieu: '',
+    date_acceptation: '',
+    date_integration: '',
+    nom_mere_bio: '',
+    nom_pere_bio: '',
+    telephone: '',
+    adresse: '',
+    nom_mere_adoptive: '',
+    nom_pere_adoptive: '',
+    tel_adoptive: '',
+    adresse_adoptive: '',
+    photo: null,
   });
 
-  const handleInputChange = (e) => {
-    const { name, value, type } = e.target;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://127.0.0.1:8000/api/bebes/${id}`);
+        setFormData(response.data);
+      } catch (error) {
+        console.error('Error fetching baby data:', error);
+      }
+    };
 
+    fetchData();
+  }, [id]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
+      
       [name]: value,
     });
   };
@@ -44,70 +59,68 @@ export default function AddKid() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/bebes', data, {
+        await axios.put(`http://127.0.0.1:8000/api/bebes/${id}`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
       nav("/home");
     } catch (error) {
-      console.error('Error sending data:', error);
+      console.error('Error updating data:', error);
     }
   };
 
   return (
     <div className='addKidSection'>
-      <h1>
-        <i>+</i> Add a Baby
-      </h1>
+      <h1>Edit Baby</h1>
       <div className="formContainer">
-        <form onSubmit={handleSubmit} encType="multipart/form-data" method='POST'>
+        <form onSubmit={handleSubmit} encType="multipart/form-data" method='PUT'>
           <table>
             <tbody>
               <tr>
                 <td>
                   <div className="box">
-                    <span>Last Name:</span>
+                  <span>First Name:</span>
                     <input
                       type="text"
-                      name="lastname"
-                      value={formData.lastname}
+                      name="nom"
+                      value={formData.nom}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>First Name:</span>
+                  <span>Last Name:</span>
                     <input
                       type="text"
-                      name="firstname"
-                      value={formData.firstname}
+                      name="prenom"
+                      value={formData.prenom}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Ordinal Number:</span>
+                  <span>Ordinal Number:</span>
                     <input
                       type="text"
-                      name="ordinal_number"
-                      value={formData.ordinal_number}
+                      name="nombre_ordonnel"
+                      value={formData.nombre_ordonnel}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Gender:</span>
+                  <span>Gender:</span>
                     <select
-                      name="gender"
-                      value={formData.gender}
+                      name="sexe"
+                      value={formData.sexe}
                       onChange={handleInputChange}
                     >
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
+                      <option value="homme">Homme</option>
+                      <option value="femme">Femme</option>
                     </select>
                   </div>
                 </td>
@@ -115,44 +128,44 @@ export default function AddKid() {
               <tr>
                 <td>
                   <div className="box">
-                    <span>Date of Birth:</span>
+                  <span>Date of Birth:</span>
                     <input
                       type="date"
-                      name="date_of_birth"
-                      value={formData.date_of_birth}
+                      name="date_naissance"
+                      value={formData.date_naissance}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Place:</span>
+                  <span>Place:</span>
                     <input
                       type="text"
-                      name="place"
-                      value={formData.place}
+                      name="lieu"
+                      value={formData.lieu}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Acceptance Date:</span>
+                  <span>Integration Date:</span>
                     <input
                       type="date"
-                      name="acceptance_date"
-                      value={formData.acceptance_date}
+                      name="date_acceptation"
+                      value={formData.date_acceptation}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Integration Date:</span>
+                    <span>Date d'intégration:</span>
                     <input
                       type="date"
-                      name="integration_date"
-                      value={formData.integration_date}
+                      name="date_integration"
+                      value={formData.date_integration}
                       onChange={handleInputChange}
                     />
                   </div>
@@ -161,44 +174,44 @@ export default function AddKid() {
               <tr>
                 <td>
                   <div className="box">
-                    <span>Bio Mother's Name:</span>
+                  <span>Bio Mother's Name:</span>
                     <input
                       type="text"
-                      name="bio_mother_name"
-                      value={formData.bio_mother_name}
+                      name="nom_mere_bio"
+                      value={formData.nom_mere_bio}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Bio Father's Name:</span>
+                  <span>Bio Father's Name:</span>
                     <input
                       type="text"
-                      name="bio_father_name"
-                      value={formData.bio_father_name}
+                      name="nom_pere_bio"
+                      value={formData.nom_pere_bio}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Phone:</span>
+                  <span>Phone:</span>
                     <input
                       type="tel"
-                      name="phone"
-                      value={formData.phone}
+                      name="telephone"
+                      value={formData.telephone}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Address:</span>
+                  <span>Address:</span>
                     <input
                       type="text"
-                      name="address"
-                      value={formData.address}
+                      name="adresse"
+                      value={formData.adresse}
                       onChange={handleInputChange}
                     />
                   </div>
@@ -207,48 +220,50 @@ export default function AddKid() {
               <tr>
                 <td>
                   <div className="box">
-                    <span>Adoptive Mother's Name:</span>
+                  <span>Adoptive Mother's Name:</span>
                     <input
                       type="text"
-                      name="adoptive_mother_name"
-                      value={formData.adoptive_mother_name}
+                      name="nom_mere_adoptive"
+                      value={formData.nom_mere_adoptive}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Adoptive Father's Name:</span>
+                  <span>Adoptive Father's Name:</span>
                     <input
                       type="text"
-                      name="adoptive_father_name"
-                      value={formData.adoptive_father_name}
+                      name="nom_pere_adoptive"
+                      value={formData.nom_pere_adoptive}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Adoptive Phone:</span>
+                  <span>Adoptive Phone:</span>
                     <input
                       type="tel"
-                      name="adoptive_phone"
-                      value={formData.adoptive_phone}
+                      name="tel_adoptive"
+                      value={formData.tel_adoptive}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
                 <td>
                   <div className="box">
-                    <span>Adoptive Address:</span>
+                  <span>Adoptive Address:</span>
                     <input
                       type="text"
-                      name="adoptive_address"
-                      value={formData.adoptive_address}
+                      name="adresse_adoptive"
+                      value={formData.adresse_adoptive}
                       onChange={handleInputChange}
                     />
                   </div>
                 </td>
+              </tr>
+              <tr>
               </tr>
             </tbody>
           </table>
@@ -260,11 +275,12 @@ export default function AddKid() {
             </div>
             <div className="buttons">
               <input type="reset" value="Cancel" />
-              <input type="submit" value="Add"/>
+              <input type="submit" value="Update"/>
             </div>
           </div>
         </form>
       </div>
     </div>
   );
+  
 }

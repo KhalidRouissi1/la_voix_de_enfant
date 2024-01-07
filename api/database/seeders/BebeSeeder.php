@@ -17,7 +17,7 @@ class BebeSeeder extends Seeder
         DB::table('bebes')->insert([
             'nom' => 'Nom du bébé',
             'prenom' => 'Prénom du bébé',
-            'sexe' => 'Masculin', // or 'Féminin'
+            'sexe' => 'Masculin', 
             'lieu' => 'Lieu de naissance du bébé',
             'date_acceptation' => now(),
             'date_integration' => now(),

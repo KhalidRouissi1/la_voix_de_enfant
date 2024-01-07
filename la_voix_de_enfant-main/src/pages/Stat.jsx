@@ -13,7 +13,7 @@ export default function Stat() {
             .catch(error => {
               console.error('Error fetching data:', error);
             });
-        }, []); 
+        }, [data]); 
       
   return (
     <div>

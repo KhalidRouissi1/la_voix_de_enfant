@@ -1,18 +1,18 @@
-// Afficher.jsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import './afficher.css';
+import female from "../assets/female.jpg";
+import male from "../assets/male.jpg";
+import { FaSearch } from 'react-icons/fa'; 
 
 const Afficher = () => {
   const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    // Define the API URL
     const apiUrl = 'http://127.0.0.1:8000/api/bebes';
 
-    // Fetch data from the API
     axios.get(apiUrl)
       .then(response => {
         setData(response.data);
@@ -20,20 +20,39 @@ const Afficher = () => {
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  }, []); 
+  }, []);
+
+  const filteredData = data.filter(item => {
+    const fullName = `${item.nom} ${item.prenom}`.toLowerCase();
+    return fullName.includes(searchTerm.toLowerCase());
+  });
 
   return (
     <div className="container">
+      <div className="search-container">
+        <FaSearch className="search-icon" />
+        <input
+          type="text"
+          placeholder="Search by name"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
       <div className="grid">
-        {data.map(item => (
+        {filteredData.map(item => (
           <Link key={item.id} to={`/afficher/${item.id}`} className="card-link">
             <div className="card">
-              {item.photo && (
-                <img className="card-image" src={`http://127.0.0.1:8000/storage/${item.photo}`} alt={`Photo of ${item.nom} ${item.prenom}`} />
+              {item.sexe !== "Male" && (
+                <img className="card-image" src={female} alt={`Photo of a kid`} />
               )}
+
+              {item.sexe === "Male" && (
+                <img className="card-image" src={male} alt={`Photo of a kid`} />
+              )}
+
               <div className="card-content">
-                <p className="card-text">Nom: {item.nom}</p>
-                <p className="card-text">Prenom: {item.prenom}</p>
+                <p className="card-text">Name: {item.nom}</p>
+                <p className="card-text">LastName: {item.prenom}</p>
               </div>
             </div>
           </Link>
